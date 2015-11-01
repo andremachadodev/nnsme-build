@@ -1,0 +1,145 @@
+<div class="wrap">
+  <header class="ui-header">
+    <div class="ui-header__buttonsset">
+      <!-- <a href="#" title="Menu" class="icon-menu" toggle-nav></a> -->
+      <nav-bar></nav-bar>
+    </div>
+
+    <h1 class="ui-header__heading">
+      Profile
+    </h1>
+  </header>
+
+  <section class="content">
+    <div class="content__inner space-both">
+      
+      <div ng-show="vm_profile.ready">
+
+        <header class="ui-header-profile">
+          <div class="ui-header-profile__images">
+            <img ng-src="{{ vm_profile.company_infos.Cover }}">
+
+            <span class="ui-header-profile__thumb" style="background-image: url({{ vm_profile.company_infos.Logo }})">
+              <!-- -->
+            </span>
+          </div>
+
+          <p class="ui-header-profile__username" ng-bind="vm_profile.company_infos.Owner">
+            
+          </p>
+
+          <p class="ui-header-profile__companyname" ng-bind="vm_profile.company_infos.Name">
+            
+          <p>
+        </header>
+
+        <div class="ui-button-bar ui-button-bar--double" ng-if="!vm_profile.my_company">
+          <a href="tel:{{ vm_profile.company_infos.Telephone }}" title="Call" class="ui-button icon-phone">Call</a>
+
+          <a href="#" title="Add" class="ui-button icon-plus" ng-click="vm_profile.add_network($event)">Add</a>
+        </div>
+
+        <a href="#/profile/account" title="Edit account" class="ui-button ui-button--block icon-pointer" ng-if="vm_profile.my_company">Edit account</a>
+
+        <div class="ui-list">
+          <span class="ui-list__item--dllike">
+            <i class="ui-list__icon icon-map-pin"></i>
+
+            <span class="ui-list__title">Location</span>
+
+            {{ vm_profile.company_infos.CityName }}
+          </span>
+
+          <span class="ui-list__item" ng-if="vm_profile.company_infos.Status !== ''">
+            <i class="ui-list__icon ui-list__icon--left icon-double-quote"></i>
+
+            {{ vm_profile.company_infos.Status }}
+          </span>
+
+          <span class="ui-list__item" ng-if="vm_profile.company_infos.ProductPictures.length">
+            <div class="swipe">
+              <div class="swipe-wrap">
+                <div class="swipe-product" ng-repeat="prod in vm_profile.company_infos.ProductPictures">
+                  <img ng-src="{{ prod.Path }}">
+
+                  <span>{{ prod.Caption }}</span>
+                </div>
+              </div>
+
+              <ul class="swipe-bullets">
+                <li ng-repeat="bull in vm_profile.company_infos.ProductPictures" ng-class="{selected: $index === 0}">
+                  <!-- -->
+                </li>
+              </ul>
+            </div>
+          </span>
+
+          <a ng-repeat="offer in vm_profile.company_infos.Offers" href="#/profile/offers/company_id={{ vm_profile.company_infos.Id }}&company_name={{ vm_profile.company_infos.Name }}&type={{ offer.Type }}" class="ui-list__item">
+            <i class="ui-list__icon ui-list__icon--left icon-{{ offer.Name.replace(' ', '').toLowerCase() }}"></i>
+
+            {{ offer.Name }}
+
+            <div class="ui-list__icon_group--right">
+              <i class="ui-list__badge">{{ offer.Total }}</i>
+              <i class="ui-list__icon icon-arrow-circ-right"></i>
+            </div>
+          </a>
+
+          <span class="ui-list__item" ng-if="vm_profile.company_infos.Profile">
+            <span class="ui-list__title--bold">Overview</span>
+
+            {{ vm_profile.company_infos.Profile }}
+          </span>
+
+          <span class="ui-list__item" ng-if="vm_profile.company_infos.Services">
+            <span class="ui-list__title--bold">Services</span>
+
+            {{ vm_profile.company_infos.Services }}
+          </span>          
+        </div>
+
+        <div map-location ctrl-coords="vm_profile.company_infos.GeoLocation" ctrl-address="{{ vm_profile.company_infos.Address }}">
+          <!-- -->
+        </div>
+
+        <div class="ui-list">
+          <span class="ui-list__item--dllike" ng-if="vm_profile.company_infos.Address">
+            <i class="ui-list__icon icon-target"></i>
+   
+            <span class="ui-list__title">Address</span>
+
+            {{ vm_profile.company_infos.Address }}
+
+          </span>
+
+          <span class="ui-list__item--dllike" ng-if="vm_profile.company_infos.Telephone">
+            <i class="ui-list__icon icon-phone"></i>
+
+            <span class="ui-list__title">Contact</span>
+
+            <a href="tel: {{ vm_profile.company_infos.Telephone }}">
+                {{ vm_profile.company_infos.Telephone }}
+            </a>
+
+            <a href="mailto: {{ vm_profile.company_infos.Email }}">
+              {{ vm_profile.company_infos.Email }}
+            </a>
+          </span>
+
+          <span class="ui-list__item--dllike" ng-if="vm_profile.company_infos.Website">
+            <i class="ui-list__icon icon-pointer"></i>
+
+            <span class="ui-list__title">Website</span>
+
+            <a href="http://{{ vm_profile.company_infos.Website }}" target="_blank">
+              {{ vm_profile.company_infos.Website }}
+            </a>
+
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</div>

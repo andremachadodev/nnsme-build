@@ -1,0 +1,30 @@
+<header class="ui-header">
+  <h1 class="ui-header__heading">
+    Profile
+  </h1>
+
+  <div class="ui-header__buttonsset">
+    <a href="#" class="ui-popover__close icon-close"></a>
+  </div>
+</header>
+
+<div class="ui-popover__wrap">
+
+  <form name="frm_contact" novalidate ng-submit="vm_account.update_contact($event)">
+    <label class="ui-textfield icon-mail">
+      <input type="email" ng-model="vm_account.fields_contact.Email" name="Email" placeholder="Email" autocorrect="off" autocapitalize="off">
+    </label>
+
+    <label class="ui-textfield icon-phone">
+      <input type="tel" ng-model="vm_account.fields_contact.Telephones" name="Telephones" placeholder="Telephone" autocorrect="off" autocapitalize="off">
+    </label>
+
+    <label class="ui-textfield icon-earth">
+      <input type="text" ng-model="vm_account.fields_contact.Website" name="Website" placeholder="Website" autocorrect="off" autocapitalize="off">
+    </label>
+
+    <button type="submit" type="submit" class="ui-button ui-button--block">Update</button>
+  </form>
+
+</div>
+    

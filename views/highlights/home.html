@@ -1,0 +1,54 @@
+<div class="wrap">
+  <header class="ui-header">
+    <div class="ui-header__buttonsset">
+      <!-- <a href="#" title="Menu" class="icon-menu" toggle-nav></a> -->
+      <nav-bar></nav-bar>
+    </div>
+
+    <h1 class="ui-header__heading icon-logo">
+      <!-- -->
+    </h1>
+  </header>
+
+  <section class="content content--highlight">
+
+    <div class="swipe highlight" ng-show="vm_highlights_home.ready">
+      <div class='swipe-wrap'>
+
+        <div ng-repeat="item in vm_highlights_home.list" style="background-image: url('dist/img/highlight_home_01.jpg')" ng-click="vm_highlights_home.cache($event, $index, vm_highlights_home.Id)">
+
+          <div class="highlight__content">
+            <span class="highlight__category">Event</span>
+
+            <h2 class="highlight__title" ng-bind="item.Name">
+              
+            </h2>
+
+            <p class="highlight__desc" ng-bind="item.Description">
+              
+            </p>
+
+            <!-- Like a button... yep. -->
+            <span class="ui-button">Learn More</span>
+
+            <span class="highlight__by" ng-bind="item.Organizer">
+              
+            </span>
+          </div>
+
+          <div class="highlight__shadow">
+            
+          </div>
+
+        </div>
+
+      </div>
+
+      <ul class="swipe-bullets highlight__bullets">
+        <li ng-repeat="item in vm_highlights_home.list" class="{{ $index === 0 ? 'selected' : '' }}"><!-- --></li>
+      </ul>
+    </div>
+
+  </section>
+</div>
+

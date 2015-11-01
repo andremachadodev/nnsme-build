@@ -1,0 +1,80 @@
+<a href="" class="ui-popover__close icon-close"></a>
+
+<div class="ui-popover__wrap" ng-init='teste = [{
+  "Id": 1,
+  "Name": "Categoria 01",
+  "Subcategories": [
+    {
+      "Id": 5,
+      "Name": "Sub categoria 01"
+    },
+    {
+      "Id": 6,
+      "Name": "Sub categoria 02"
+    },
+    {
+      "Id": 7,
+      "Name": "Sub categoria 03"
+    }
+  ]
+},
+{
+  "Id": 2,
+  "Name": "Categoria 02",
+  "Subcategories": [
+    {
+      "Id": 8,
+      "Name": "Sub categoria 08"
+    },
+    {
+      "Id": 9,
+      "Name": "Sub categoria 09"
+    },
+    {
+      "Id": 10,
+      "Name": "Sub categoria 10"
+    }
+  ]
+},
+{
+  "Id": 3,
+  "Name": "Categoria 03",
+  "Subcategories": [
+    {
+      "Id": 11,
+      "Name": "Sub categoria 11"
+    },
+    {
+      "Id": 12,
+      "Name": "Sub categoria 12"
+    },
+    {
+      "Id": 13,
+      "Name": "Sub categoria 13"
+    }
+  ]
+},
+{
+  "Id": 4,
+  "Name": "Categoria 04",
+  "Subcategories": [
+    {
+      "Id": 14,
+      "Name": "Sub categoria 14"
+    },
+    {
+      "Id": 15,
+      "Name": "Sub categoria 15"
+    },
+    {
+      "Id": 16,
+      "Name": "Sub categoria 16"
+    }
+  ]
+}]'>
+
+  <category-set category-multiple category-ctrl-obj="teste" category-ctrl-callback="" class="ui-category_set"><!--  ng-if="show_set" -->
+
+  </category-set>
+
+</div>

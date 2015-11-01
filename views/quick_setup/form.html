@@ -1,0 +1,114 @@
+<div class="wrap">
+  <header class="ui-header">
+    <h1 class="ui-header__heading">
+      Quick Setup
+    </h1>
+  </header>
+
+  <section class="content">
+    <div class="content__inner space-both">
+
+      <form name="frm_register" novalidate angular-validator angular-validator-submit="vm_quick.send($event)">
+        <label class="ui-textfield icon-briefcase">
+          <input type="text" name="Name" placeholder="Company Name" autocorrect="off" autocapitalize="off"
+
+            ng-model="vm_quick.fields.Name"
+            required-message="'Name is required'"
+
+            required
+          >
+        </label>
+
+        <label class="ui-textfield">
+          <textarea ng-model="vm_quick.fields.Profile" name="Profile" placeholder="Profile Overview"></textarea>
+        </label>
+
+        <label class="ui-file ui-file--block icon-camera-plus">
+          <span>Add Company Logo</span>
+          <input type="file" ng-model="vm_quick.fields.Logo" upload ctrl-field="vm_quick.fields.Logo">
+        </label>
+
+        <!-- <div map-location ctrl-coord="vm_quick.fields.GeoLocation">
+          
+        </div> -->
+        <div map-location ctrl-coords="vm_quick.fields.GeoLocation" ctrl-address="" ctrl-address-field="Address">
+          <!-- -->
+        </div>
+
+        <label class="ui-textfield icon-user">
+          <input type="text" name="Address" placeholder="Your Address" autocorrect="off" autocapitalize="off"
+
+            ng-model="vm_quick.fields.Address"
+            required-message="'Address is required'"
+
+            required
+          >
+        </label>
+
+        <label class="ui-select icon-earth">
+          <select name="Country" ng-model="vm_quick.fields.Country" country-city-pair="State"
+            ng-model="vm_quick.fields.Country"
+            required-message="'Country is required'"
+
+            required
+          >
+            <option value="">Country</option>
+            <option ng-repeat="country in country_pair" value="{{ country.Id }}" index="{{ $index }}">{{ country.Name }}</option>
+          </select>
+        </label>
+
+        <label class="ui-select icon-map-pin">
+          <select name="State" ng-model="vm_quick.fields.State"
+            ng-model="vm_quick.fields.State"
+            required-message="'State is required'"
+
+            required
+          >
+            <option value="">City</option>
+            <option ng-repeat="city in city_pair" value="{{ city.Id }}">{{ city.Name }}</option>
+            <!-- -->
+          </select>
+        </label>
+
+        <label class="ui-textfield icon-mail">
+          <input type="email" name="Email" placeholder="Email" ng-pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/" autocorrect="off" autocapitalize="off"
+
+            ng-model="vm_quick.fields.Email"
+            validate-on="blur"
+            required-message="'Email is required'"
+            invalid-message="'Invalid email'"
+
+            required
+          >
+        </label>
+
+        <label class="ui-textfield icon-hash">
+          <input type="tel" name="LicenseNumber" placeholder="License Number" autocorrect="off" autocapitalize="off"
+
+            ng-model="vm_quick.fields.LicenseNumber"
+            validate-on="blur"
+            required-message="'LicenseNumber is required'"
+
+            required
+          >
+        </label>
+
+        <label class="ui-textfield icon-schedule">
+          <input type="date" name="LicenseIssuedDate" placeholder="License Issued Date" autocorrect="off" autocapitalize="off"
+
+            ng-model="vm_quick.fields.LicenseIssuedDate"
+            validate-on="blur"
+            required-message="'LicenseIssuedDate is required'"
+
+            required
+
+            date-normalize date-normalize-min
+          >
+        </label>
+      
+        <button type="submit" class="ui-button ui-button--block">Continue</button>
+      </form>
+
+    </div>
+  </section>
+</div>

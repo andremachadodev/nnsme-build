@@ -1,0 +1,122 @@
+<div class="wrap">
+  <popover popover-name="popover_banner" popover-url="views/account/banners.html" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_status" popover-url="views/account/status.html" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_products" popover-url="views/account/products.html" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_profile" popover-url="views/account/profile.html" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_services" popover-url="views/account/services.html" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_location" popover-url="views/account/location.html" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_contact" popover-url="views/account/contact.html" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <header class="ui-header">
+    <div class="ui-header__buttonsset">
+      <!-- <a href="#" title="Menu" class="icon-menu" toggle-nav></a> -->
+      <nav-bar></nav-bar>
+    </div>
+
+    <h1 class="ui-header__heading">
+      Account
+    </h1>
+  </header>
+
+  <section class="content">
+    <div class="content__inner space-both">
+      
+      <header class="ui-header-profile">
+        <div class="ui-header-profile__images" ng-click="popover_banner.toggle($event)">
+          <img ng-src="{{ vm_account.company_infos.Cover }}">
+
+          <span class="ui-header-profile__thumb" style="background-image: url({{ vm_account.company_infos.Logo }})">
+            <!-- -->
+          </span>
+        </div>
+
+        <p class="ui-header-profile__username" ng-bind="vm_account.company_infos.Owner">
+          
+        </p>
+
+        <p class="ui-header-profile__companyname" ng-bind="vm_account.company_infos.Name">
+          
+        <p>
+      </header>
+
+      <div class="ui-list">
+        <a href="#" class="ui-list__item" ng-click="popover_banner.toggle($event)">
+          <i class="ui-list__icon ui-list__icon--left icon-tag"></i>
+
+          Banners
+
+          <i class="ui-list__icon ui-list__icon--right icon-arrow-circ-right"></i>
+        </a>
+
+        <a href="#" class="ui-list__item" ng-click="popover_status.toggle($event)">
+          <i class="ui-list__icon ui-list__icon--left icon-double-quote"></i>
+
+          Status
+
+          <i class="ui-list__icon ui-list__icon--right icon-arrow-circ-right"></i>
+        </a>
+
+        <a href="#" class="ui-list__item" ng-click="popover_products.toggle($event)">
+          <i class="ui-list__icon ui-list__icon--left icon-exclamation"></i>
+
+          Products
+
+          <i class="ui-list__icon ui-list__icon--right icon-arrow-circ-right"></i>
+        </a>
+
+        <a href="#" class="ui-list__item" ng-click="popover_profile.toggle($event)">
+          <i class="ui-list__icon ui-list__icon--left icon-tag"></i>
+
+          Profile
+
+          <i class="ui-list__icon ui-list__icon--right icon-arrow-circ-right"></i>
+        </a>
+
+        <a href="#" class="ui-list__item" ng-click="popover_services.toggle($event)">
+          <i class="ui-list__icon ui-list__icon--left icon-hotdeal"></i>
+
+          Services
+
+          <i class="ui-list__icon ui-list__icon--right icon-arrow-circ-right"></i>
+        </a>
+
+        <a href="#" class="ui-list__item" ng-click="popover_location.toggle($event)">
+          <i class="ui-list__icon ui-list__icon--left icon-map-pin"></i>
+
+          Location
+
+          <i class="ui-list__icon ui-list__icon--right icon-arrow-circ-right"></i>
+        </a>
+
+        <a href="#" class="ui-list__item" ng-click="popover_contact.toggle($event)">
+          <i class="ui-list__icon ui-list__icon--left icon-phone"></i>
+
+          Contact Details
+
+          <i class="ui-list__icon ui-list__icon--right icon-arrow-circ-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+</div>

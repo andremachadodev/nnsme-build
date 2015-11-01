@@ -1,0 +1,88 @@
+<div class="wrap">
+  <header class="ui-header">
+    <div class="ui-header__buttonsset">
+      <!-- <a href="#" title="Menu" class="icon-menu" toggle-nav></a> -->
+      <nav-bar></nav-bar>
+    </div>
+
+    <h1 class="ui-header__heading">
+      Messages
+    </h1>
+  </header>
+
+  <!--
+    update-content
+
+    infinity-callback="vm_offers.fetch()"
+    infinity-loading="vm_offers.loading_infinity"
+    infinity-finish="vm_offers.finish_infinity"
+
+    pull-callback="vm_offers.fetch()"
+    pull-loading="vm_offers.loading_pull"
+  -->
+
+  <section class="content">
+    <div class="content__inner space-outside">
+      <div ng-show="vm_msg_list.ready">
+
+        <div class="ui-tabs ui-tabs--double" tabs>
+          <a href="#tabs_in" title="To my offers" class="ui-tabs__button ui-tabs__button--selected">
+            To my offers - <strong ng-bind="vm_msg_list.list_in_new"></strong>
+          </a>
+
+          <a href="#tabs_sent" title="My interests" class="ui-tabs__button">
+            My interests - <strong ng-bind="vm_msg_list.list_sent_new"></strong>
+          </a>
+        </div>
+
+        <div class="ui-list ui-tabs__content ui-tabs__content--selected" id="tabs_in">
+
+          <div class="ui-empty-warning" ng-if="vm_msg_list.list_in !== null && !vm_msg_list.list_in.length">
+            <h3 class="ui-heading--first">
+              No messages to my offers yet.
+            </h3>
+          </div>
+
+          <a ng-repeat="msg in vm_msg_list.list_in" repeat-end-callback="vm_msg_list,set_options_event" href="#" class="ui-list__item--msg" ng-class="{'ui-list__item--msg--new': msg.MessageState === 0}" ng-click="vm_msg_list.cache($event, $index, 'list_in', msg.Id)">
+            <span class="ui-list__msg_title">
+              {{ msg.Offer.Name }}
+            </span>
+
+            <span class="ui-list__msg_sender">
+              {{ msg.FromMember.Name }}
+            </span>
+
+            <span class="ui-list__msg_company_sender">
+              {{ msg.FromCompany.Name }}
+            </span>
+          </a>
+
+        </div>
+
+        <div class="ui-list ui-tabs__content" id="tabs_sent">
+
+          <div class="ui-empty-warning" ng-if="vm_msg_list.list_sent !== null && !vm_msg_list.list_sent.length">
+            <h3 class="ui-heading--first">
+              No messages sent by you. 
+            </h3>
+          </div>
+
+          <a ng-repeat="msg in vm_msg_list.list_sent" repeat-end-callback="vm_msg_list,set_options_event" class="ui-list__item--msg" ng-class="{'ui-list__item--msg--new': msg.MessageState === 0}" href="#" ng-click="vm_msg_list.cache($event, $index, 'list_sent', msg.Id)">
+            <span class="ui-list__msg_title">
+              {{ msg.Offer.Name }}
+            </span>
+
+            <span class="ui-list__msg_sender">
+              {{ msg.FromMember.Name }}
+            </span>
+
+            <span class="ui-list__msg_company_sender">
+              {{ msg.FromCompany.Name }}
+            </span>
+          </a>
+
+        </div>
+      <div>
+    </div>
+  </section>
+</div>

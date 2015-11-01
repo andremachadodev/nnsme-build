@@ -1,0 +1,127 @@
+<div class="wrap">
+  <popover popover-name="popover_new_edit" popover-url="views/offers/new.html" popover-top class="ui-popover theme-green">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_msg" popover-url="views/messages/new.html" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <div class=" theme-{{ vm_offer.offer.TypeClass }}">
+    <header class="ui-header">
+      <div class="ui-header__buttonsset">
+        <!-- <a href="#" title="Menu" class="icon-menu" toggle-nav></a> -->
+        <nav-bar></nav-bar>
+      </div>
+
+      <h1 class="ui-header__heading" ng-bind="vm_offer.offer.TypeStr">
+        <!-- -->
+      </h1>
+    </header>
+
+    <section class="content">
+      <div class="content__inner space-outside">
+
+        <div ng-show="vm_offer.ready">
+          <article class="ui-box">
+            <span class="ui-box__my" ng-if="vm_offer.offer.MyPost">
+              My
+            </span>
+            
+            <span class="ui-box__thumb">
+              <img ng-src="{{ vm_offer.offer.PicturePath }}" alt="">
+            </span>
+
+            <h2 class="ui-box__heading" ng-bind="vm_offer.offer.Title">
+              <!-- -->
+            </h2>
+
+            <div class="ui-box__desc" ng-bind="vm_offer.offer.Description">
+              <!-- -->
+            </div>
+
+            <div class="ui-button-bar ui-button-bar--double" ng-if="!vm_offer.offer.MyPost && !vm_offer.offer.Expired">
+              <a href="#" title="Message" class="ui-button icon-mail" ng-click="popover_msg.toggle($event)">Message</a>
+
+              <a href="tel:{{ vm_offer.offer.Company.Telephone }}" title="Call" class="ui-button icon-phone">Call</a>
+            </div>
+
+            <div class="ui-button-bar ui-button-bar--double" ng-if="vm_offer.offer.MyPost">
+              <a href="#" title="Edit" class="ui-button icon-pen" ng-click="popover_new_edit.toggle($event)">Edit</a>
+
+              <a href="#" title="Disable" class="ui-button icon-close" ng-click="vm_offer.disabled_offer($event)">Disable</a>
+            </div>
+
+            <div class="ui-list">
+              <span class="ui-list__item--dllike" ng-if="!vm_offer.offer.DiscountRate">
+                <i class="ui-list__icon icon-money"></i>
+
+                <span class="ui-list__title">Amount</span>
+
+                <span class="ui-list__txt_big">
+                  AED {{ vm_offer.offer.Amount }}<small>,00</small>
+                </span>
+              </span>
+
+              <span class="ui-list__item--dllike" ng-if="vm_offer.offer.DiscountRate">
+                <i class="ui-list__icon icon-money"></i>
+
+                <span class="ui-list__title">Amount</span>
+
+                <span class="ui-list__txt_big">
+                  AED
+                  <strong ng-bind="vm_offer.offer.FinalPrice"></strong>,00 
+                  <small>({{ vm_offer.offer.DiscountRate}}% off)</small>
+                </span>
+              </span>
+
+              <span class="ui-list__item--dllike" ng-if="!vm_offer.offer.Started">
+                <i class="ui-list__icon icon-star"></i>
+
+                <span class="ui-list__title">Started from</span>
+
+                <span class="ui-list__txt">
+                  The offer started on {{ vm_offer.offer.ValidFrom | date : 'dd MMM, yyyy' }}
+                </span>
+              </span>
+
+              <span class="ui-list__item--dllike" ng-if="vm_offer.offer.ValidUntil && !vm_offer.offer.Expired && vm_offer.offer.Started">
+                <i class="ui-list__icon icon-schedule"></i>
+
+                <span class="ui-list__title">Valid until</span>
+
+                <span class="ui-list__txt">
+                  {{ vm_offer.offer.ValidUntil | date : 'dd MMM, yyyy' }}
+                </span>
+              </span>
+
+              <span class="ui-list__item--dllike">
+                <i class="ui-list__icon icon-briefcase"></i>
+
+                <span class="ui-list__title">Company</span>
+
+                <a href="#/profile/company/{{ vm_offer.offer.Company.Id }}" class="ui-list__txt" ng-bind="vm_offer.offer.Company.Name">
+                  
+                </a>
+              </span>
+
+              <span class="ui-list__item--dllike">
+                <i class="ui-list__icon icon-map-pin"></i>
+
+                <span class="ui-list__title">Location</span>
+
+                <span class="ui-list__txt" ng-bind="vm_offer.offer.Company.Location.Name">
+                  
+                </span>
+              </span>
+            </div>
+          </article>
+
+          <a href="#" class="ui-button ui-button--block ui-button--opaque" open-modal="offers/report_abuse.html" ng-if="!vm_offer.offer.MyPost">
+            Report Abuse
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

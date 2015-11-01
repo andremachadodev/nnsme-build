@@ -1,0 +1,81 @@
+<div class="wrap theme-{{ vm_offer.offer.TypeClass }}">
+  <popover popover-name="popover_edit" popover-url="views/offers/new.html" popover-top class="ui-popover theme-{{ vm_offer.offer.TypeClass }}">
+  <!-- ui-popover theme-{{ vm_offer.offer.TypeClass }} -->
+  </popover>
+
+  <header class="ui-header">
+    <div class="ui-header__buttonsset">
+      <!-- <a href="#" title="Menu" class="icon-menu" toggle-nav></a> -->
+      <nav-bar></nav-bar>
+    </div>
+
+    <h1 class="ui-header__heading">
+      Highlight
+    </h1>
+  </header>
+
+  <section class="content">
+    <div class="content__inner space-outside">
+
+      <article class="ui-box">
+        <span class="ui-box__thumb">
+          <img ng-src="{{ vm_highlights_detail.detail.PicturePath }}" alt="">
+        </span>
+
+        <h2 class="ui-box__heading">
+          {{ vm_highlights_detail.detail.Name }}
+          <span>
+            {{ vm_highlights_detail.detail.Organizer }}
+          </span>
+        </h2>
+
+        <div class="ui-box__desc" ng-bind="vm_highlights_detail.detail.Description">
+          <!-- -->
+        </div>
+
+        <div class="ui-button-bar ui-button-bar--double">
+          <a href="#" title="Register" class="ui-button icon-pen">Register</a>
+
+          <a href="tel:{{ vm_highlights_detail.detail.PhoneNumber }}" title="Call" class="ui-button icon-phone">Call</a>
+        </div>
+
+        <div class="ui-list">
+          <span class="ui-list__item--dllike">
+            <i class="ui-list__icon icon-schedule"></i>
+
+            <span class="ui-list__title">Event Period</span>
+
+            <span class="ui-list__txt">
+              {{ vm_highlights_detail.detail.ValidFrom | date : 'dd MMM, yyyy' }} - {{ vm_highlights_detail.detail.ValidFrom | date : 'dd MMM, yyyy' }}
+            </span>
+          </span>
+
+          <span class="ui-list__item--dllike">
+            <i class="ui-list__icon icon-pointer"></i>
+
+            <span class="ui-list__title">Website</span>
+
+            <a href="{{ vm_highlights_detail.detail.Website }}" target="_blank" class="ui-list__txt">
+              {{ vm_highlights_detail.detail.Website }}
+            </a>
+          </span>
+
+          <span class="ui-list__item--dllike">
+            <i class="ui-list__icon icon-target"></i>
+
+            <span class="ui-list__title">Address</span>
+
+            <span class="ui-list__txt">
+              {{ vm_highlights_detail.detail.Address }}
+            </span>
+          </span>
+
+          <div map-location ctrl-coords="vm_highlights_detail.detail.GeoLocation" ctrl-address="{{ vm_highlights_detail.detail.Address }}">
+            
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</div>

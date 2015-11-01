@@ -1,0 +1,367 @@
+<div class="wrap">
+  <popover popover-name="popover_filter" popover-url="views/offers/filter.html" popover-top class="ui-popover theme-green">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_xpto" popover-url="views/ui/popover_test.html" popover-ctrl-callback="xpto" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_category" popover-url="views/ui/popover_category.html" popover-ctrl-callback="category" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <header class="ui-header">
+    <div class="ui-header__buttonsset">
+      <!-- <a href="#" title="Menu" class="icon-menu" toggle-nav></a> -->
+      <nav-bar></nav-bar>
+    </div>
+
+    <h1 class="ui-header__heading">
+      Ui
+    </h1>
+
+    <div class="ui-header__buttonsset">
+      <a href="#" title="Filter" class="icon-filter" ng-click="popover_filter.toggle($event)"></a>
+
+      <a href="#" title="Search" class="icon-search"></a>
+
+      <a href="#" title="New" class="icon-plus"></a>
+    </div>
+  </header>
+
+  <section class="content">
+    <div class="content__inner space-outside">
+      <div class="ui-empty-warning">
+        <h3 class="ui-heading--first">
+          Lorem ipsum dolor sit amet
+        </h3>
+
+        <div class="ui-list">
+          <a href="" class="ui-list__item--instruction">
+            <i class="ui-list__icon ui-list__icon--left icon-filter"></i>
+
+            Lorem ipsum dolor sit amet
+          </a>
+
+          <a href="" class="ui-list__item--instruction">
+            <i class="ui-list__icon ui-list__icon--left icon-search"></i>
+
+            Lorem ipsum
+          </a>
+
+          <a href="" class="ui-list__item--instruction">
+            <i class="ui-list__icon ui-list__icon--left icon-plus"></i>
+
+            Lorem ipsum dolor sit
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="content__inner space-both">
+      <label class="ui-textfield icon-schedule">
+        <input type="date" name="data" ng-class="{'ng-dirty': vm_ui.date !== ''}"
+          ng-model="vm_ui.today"
+        >
+      </label>
+
+      <div map-location ctrl-coords="vm_ui.coord" ctrl-address="{{ vm_ui.address }}" ctrl-address-field="Address">
+        <!-- -->
+      </div>
+
+      <label class="ui-textfield icon-user">
+        <input type="text" name="Address" placeholder="Your Address" autocorrect="off"
+
+          ng-model="vm_ui.address"
+          required-message="'Address is required'"
+
+          required
+        >
+      </label>
+
+      <!-- Logo -->
+      <h1 class="ui-heading--logo icon-logo">
+        
+      </h1>
+
+      <!-- Headings -->
+      <h1 class="ui-heading--big">
+        Welcome to the biggest business network in the UAE
+      </h1>
+
+      <h1 class="ui-heading--first">
+        Welcome to the biggest business network in the UAE
+      </h1>
+
+      <h2 class="ui-heading--second">
+        Welcome to the biggest business network in the UAE
+      </h2>
+
+      <!-- Form elements -->
+      <form>
+        <fieldset>
+
+          <p>
+            Checkbox/Radio (ios like)
+
+            <label class="ui-checkbox">
+              <input type="checkbox">
+              <span></span>
+            </label>
+          </p>
+
+          <p>
+            Checkbox/Radio (simple version)
+
+            <label class="ui-checkbox--thiny">
+              <input type="checkbox">
+              <span></span>
+            </label>
+
+            <label class="ui-radiobutton--thiny">
+              <input type="radio">
+              <span></span>
+            </label>
+          </p>
+
+          <label class="ui-textfield icon-user">
+            <input type="text" placeholder="Name">
+          </label>
+
+          <label class="ui-textfield icon-mail">
+            <input type="email" placeholder="Email">
+          </label>
+
+          <label class="ui-textfield icon-phone">
+            <input type="tel" placeholder="Phone number">
+          </label>
+
+          <label class="ui-textfield">
+            <input type="tel" placeholder="Another sttuf...">
+          </label>
+
+          <label class="ui-textfield">
+            <textarea placeholder="Get out way! Textarea in da house!"></textarea>
+          </label>
+
+          <label class="ui-select icon-asterisc">
+            <select>
+              <option value="">Item 01</option>
+              <option value="">Item 02</option>
+              <option value="">Item 03</option>
+              <option value="">Item 04</option>
+              <option value="">Item 05</option>
+              <option value="">Item 06</option>
+            </select>
+          </label>
+
+        </fieldset>
+      </form>
+
+      <p>
+        <a href="#" class="ui-button icon-user">Teste legal a</a>
+        <button class="ui-button icon-user">Teste legal button</button>
+      </p>
+
+      <p>
+        <a href="#" class="ui-button ui-button--block">Teste legal a</a>
+        <button class="ui-button ui-button--block icon-user">Teste legal button</button>
+      </p>
+
+      <p>
+        <a href="#" class="ui-button ui-button--outline">Teste legal a</a>
+        <button class="ui-button ui-button--outline icon-user">Teste legal button</button>
+      </p>
+
+      <p class="ui-button-bar ui-button-bar--double"> <!-- com espaço -->
+        <a href="#" class="ui-button">Teste legal</a>
+        <a href="#" class="ui-button">Teste legal</a>
+      </p>
+
+      <p class="ui-button-bar ui-button-bar--flat"> <!-- sem espaço -->
+        <a href="#" class="ui-button">Teste legal</a>
+        <a href="#" class="ui-button">Teste legal</a>
+        <a href="#" class="ui-button">Teste legal</a>
+      </p>
+
+      <div class="ui-list">
+        <span class="ui-list__item">
+          <i class="ui-list__icon ui-list__icon--left icon-phone"></i>
+
+          Teste sem link
+
+          <div class="ui-list__icon_group--right">
+            <i class="ui-list__badge">11</i>
+            <i class="ui-list__icon icon-arrow-circ-right"></i>
+          </div>
+        </span>
+
+        <a href="" class="ui-list__item">
+          <i class="ui-list__icon ui-list__icon--left icon-asterisc"></i>
+
+          Teste com link
+
+          <i class="ui-list__icon ui-list__icon--right icon-arrow-circ-right"></i>
+        </a>
+
+        <a href="" class="ui-list__item">
+          <i class="ui-list__icon ui-list__icon--left icon-asterisc"></i>
+
+          Teste com link
+
+          <i class="ui-list__badge">11</i>
+        </a>
+
+        <a href="" class="ui-list__item">
+          <i class="ui-list__icon ui-list__icon--left icon-asterisc"></i>
+
+          Teste com link
+
+          <div class="ui-list__icon_group--right">
+            <i class="ui-list__icon icon-user"></i>
+            <i class="ui-list__icon icon-asterisc"></i>
+            <i class="ui-list__icon icon-arrow-circ-right"></i>
+          </div>
+        </a>
+
+        <span class="ui-list__item--dllike">
+          <i class="ui-list__icon icon-earth"></i>
+ 
+          <span class="ui-list__title--bold">Wow</span>
+
+          Lorem ipsum dolor sit amet consectuer.
+
+        </span>
+      </div>
+
+      <div class="ui-list">
+        <span class="ui-list__item--thiny">
+          Andre Luis Machado da Silva Sauro
+        </span>
+        <span class="ui-list__item--thiny">
+          Um Doi Tres Oliveira Quatro da Silva Sauro
+        </span>
+      </div>
+
+      <div class="ui-list">
+        <span class="ui-list__item--dllike">
+          <i class="ui-list__icon icon-mail"></i>
+
+          <span class="ui-list__title">Amount</span>
+
+          23 Dec 2013 - 21 Jan 2014
+        </span>
+
+        <span class="ui-list__item--dllike">
+          <i class="ui-list__icon icon-mail"></i>
+
+          <span class="ui-list__title">Amount</span>
+
+          <span class="ui-list__txt_big">AED 500,000</span>
+        </span>
+      </div>
+
+      <p>
+        <a href="#" class="ui-button ui-button--block" open-modal="ui/modal_test.html">Modal</a>
+      </p>
+
+      <p>
+        <a href="#" class="ui-button ui-button--block" ng-click="popover_xpto.toggle($event)">Popover</a>
+      </p>
+
+      <p>
+        <a href="#" class="ui-button ui-button--block" ng-click="popover_category.toggle($event)">Categorias</a>
+      </p>
+    </div>
+
+    <div class="content__inner space-outside">
+      <article class="ui-box">
+        <span class="ui-box__my">
+          My
+        </span>
+
+        <a href="">
+          <img src="dist/img/post.jpg" class="ui-box__thumb">
+        </a>
+
+        <span class="ui-type icon-tobuy">
+          To Buy
+        </span>
+
+        <div class="ui-box__content">
+          <h2 class="ui-box__heading">
+            <a href="">
+              Lorem ipsum dolor sit amet consectuer
+            </a>
+          </h2>
+
+          <p class="ui-box__price">
+            AED 30.000,00
+          </p>
+
+          <!-- <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta, orci vitae tincidunt porttitor, est eros finibus diam, sed semper quam nibh non massa.
+          </p> -->
+
+          <ul class="ui-box__features">
+            <li class="icon-briefcase">
+              Lorem ipsum company da silva
+            </li>
+            <li class="icon-map-pin">
+              Dubai
+            </li>
+            <li class="ui-box__features--expired icon-tag-double">
+              Expired
+            </li>
+            <li class="ui-box__features--active icon-tag-double">
+              Active
+            </li>
+            <li class="ui-box__features--disabled icon-tag-double">
+              Active after xx/xx/xxxx
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <div class="ui-card">
+        <img src="dist/img/user.jpg">
+
+        <h3 class="ui-heading--first ui-card__title">Mohamed Yousef</h3>
+
+        <div class="ui-card__specs">
+          <span class="ui-card__specs__item icon-briefcase">
+            EOV Media Development  
+          </span>
+          <span class="ui-card__specs__item icon-phone">
+            Food & Beverages
+          </span>
+        </div>
+      </div>
+
+      <div class="message_reply">
+        <img src="dist/img/user.jpg" class="message_reply__pic">
+
+        <div class="message_reply__desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl ex, blandit vitae blandit quis, euismod non sem. Proin lacus metus, facilisis quis enim vitae, accumsan rutrum sapien. Quisque tempus risus a mauris congue, eget iaculis.
+
+          <span class="message_reply__time_ago">99 days ago</span>
+        </div>
+      </div>
+
+      <div class="message_reply message_reply--me">
+        <img src="dist/img/user.jpg" class="message_reply__pic">
+
+        <div class="message_reply__desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nisl ex, blandit vitae blandit quis.
+
+          <span class="message_reply__time_ago">99 days ago</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <footer class="ui-footer">
+    MMMM  
+  </footer> -->
+</div>

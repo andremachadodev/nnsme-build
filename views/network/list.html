@@ -1,0 +1,70 @@
+<div class="wrap">
+  <!-- <popover popover-name="popover_find" popover-url="views/network/find.html" popover-top class="ui-popover theme-green" id="find_company">
+    
+  </popover> -->
+
+  <header class="ui-header">
+    <div class="ui-header__buttonsset">
+      <!-- <a href="#" title="Menu" class="icon-menu" toggle-nav></a> -->
+      <nav-bar></nav-bar>
+    </div>
+
+    <h1 class="ui-header__heading">
+      My Network
+    </h1>
+
+    <!-- <div class="ui-header__buttonsset">
+      <a href="#" title="Search" class="icon-search" ng-click="popover_find.toggle($event)"></a>
+    </div> -->
+  </header>
+
+  <section class="content"
+
+            update-content
+            infinity-callback="vm_network.fetch()"
+            infinity-loading="vm_network.loading_infinity"
+            infinity-finish="vm_network.finish_infinity"
+
+            pull-callback="vm_network.fetch()"
+            pull-loading="vm_network.loading_pull"
+  >
+    <div class="content__inner space-outside">
+      
+      <div class="ui-empty-warning" ng-if="vm_network.finish_infinity && !vm_network.list.length">
+        <h3 class="ui-heading--first">
+          You don't have connections.
+        </h3>
+
+        <p>
+          To start your network you can:
+        </p>
+
+        <div class="ui-list">
+          <a href="" class="ui-list__item--instruction">
+            <i class="ui-list__icon ui-list__icon--left icon-plus"></i>
+
+            Not have connections yet.
+          </a>
+        </div>
+      </div>
+
+      <a ng-repeat="item in vm_network.list" href="#/profile/company/{{item.Id}}" class="ui-card">
+        <span class="ui-card__thumb">
+          <img ng-src="{{ item.Thumb }}">
+        </span>
+
+        <h3 class="ui-card__title">{{ item.Name }}</h3>
+
+        <div class="ui-card__specs">
+          <span class="ui-card__specs__item icon-briefcase">
+            {{ item.Name }}
+          </span>
+          <span class="ui-card__specs__item icon-phone" ng-if="item.CategoryName">
+            {{ item.CategoryName }}
+          </span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+</div>

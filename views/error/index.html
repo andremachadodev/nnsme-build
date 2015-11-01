@@ -1,0 +1,28 @@
+<div class="wrap theme-dark">
+  <header class="ui-header">
+    <div class="ui-header__buttonsset">
+      <!-- <a href="#" title="Menu" class="icon-menu" toggle-nav></a> -->
+      <nav-bar></nav-bar>
+    </div>
+
+    <h1 class="ui-header__heading icon-logo">
+      <!-- -->
+    </h1>
+  </header>
+
+  <section class="content">
+    <div class="content__inner space-outside">
+
+      <span class="ui-icon-warning ui-icon-warning--error icon-exclamation">
+        <!-- -->
+
+        <p ng-bind="vm_error.error_message">
+        
+        </p>
+      </span>
+
+      <a href="#{{ vm_error.last_section }}" class="ui-button ui-button--block">Back</a>
+
+    </div>
+  </section>
+</div>

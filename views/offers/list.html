@@ -1,0 +1,143 @@
+<div class="wrap">
+  <popover popover-name="popover_filter" popover-url="views/offers/filter.html" popover-top class="ui-popover theme-green" id="offer_filter">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_search" popover-url="views/offers/search.html" popover-top class="ui-popover theme-green" id="offer_search">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_new_edit" popover-url="views/offers/new.html" popover-top class="ui-popover theme-green" id="offer_new">
+    <!-- -->
+  </popover>
+
+  <header class="ui-header">
+    <div class="ui-header__buttonsset">
+      <!-- <a href="#" title="Menu" class="icon-menu" toggle-nav></a> -->
+      <nav-bar></nav-bar>
+    </div>
+
+    <h1 class="ui-header__heading">
+      Offers
+    </h1>
+
+    <div class="ui-header__buttonsset">
+      <a href="#" title="Filter" class="icon-filter" ng-click="popover_filter.toggle($event)"></a>
+
+      <a href="#" title="Search" class="icon-search" ng-click="popover_search.toggle($event)"></a>
+
+      <a href="#" title="New" class="icon-plus" ng-click="popover_new_edit.toggle($event)"></a>
+    </div>
+  </header>
+
+  <section class="content"
+    update-content
+    infinity-callback="vm_offers.fetch()"
+    infinity-loading="vm_offers.loading_infinity"
+    infinity-finish="vm_offers.finish_infinity"
+
+    pull-callback="vm_offers.fetch()"
+    pull-loading="vm_offers.loading_pull"
+  >
+    <div class="content__inner space-outside">
+      <!-- Flag by company -->
+      <p ng-if="vm_offers.by_company_on && vm_offers.offers.length">
+        <a href="#" ng-click="vm_offers.fetch_reset($event)" class="ui-button ui-button--block ui-button--outline">
+          {{ vm_offers.by_company_on }} <span>(click to reset)</span>
+        </a>
+      </p>
+
+      <!-- Flag by search -->
+      <p ng-if="vm_offers.search_on && vm_offers.offers.length">
+        <a href="#" ng-click="vm_offers.fetch_reset($event)" class="ui-button ui-button--block ui-button--outline">Turn off search</a>
+      </p>
+
+      <!-- Flag by filter -->
+      <p ng-if="vm_offers.filter_on && vm_offers.offers.length">
+        <a href="#" ng-click="popover_filter.toggle($event)" class="ui-button ui-button--block ui-button--outline icon-filter">Filter is on</a>
+      </p>
+
+      <!-- Flag by empty -->
+      <div class="ui-empty-warning" ng-if="vm_offers.finish_infinity && !vm_offers.offers.length">
+        <h3 class="ui-heading--first">
+          No offers for you...
+        </h3>
+
+        <div class="ui-list">
+          <a href="" class="ui-list__item--instruction">
+            <i class="ui-list__icon ui-list__icon--left icon-filter"></i>
+
+            Change your filter preferences
+          </a>
+
+          <a href="" class="ui-list__item--instruction">
+            <i class="ui-list__icon ui-list__icon--left icon-search"></i>
+
+            Search specific offers
+          </a>
+
+          <a href="" class="ui-list__item--instruction">
+            <i class="ui-list__icon ui-list__icon--left icon-plus"></i>
+
+            Or, make a new offer
+          </a>
+        </div>
+      </div>
+
+      <!-- Offers -->
+      <article class="ui-box" ng-repeat="offer in vm_offers.offers" ng-click="vm_offers.cache($event, $index, offer.Id)">
+        <span class="ui-box__my" ng-if="offer.MyPost">
+          My
+        </span>
+
+        <span class="ui-box__thumb">
+
+          <img src="{{ offer.PicturePath }}" alt="">
+
+        </span>
+
+        <span class="ui-type icon-{{ offer.TypeClass }}">
+          {{ offer.TypeStr }}
+        </span>
+
+        <div class="ui-box__content">
+          <h2 class="ui-box__heading">
+            <!-- <a href="#/offer/{{ offer.Id }}" ng-click="vm_offers.cache($event, $index)"> -->
+              {{ offer.Title }}
+            <!-- </a> -->
+          </h2>
+
+          <p class="ui-box__price">
+            AED {{ offer.Amount }},00
+          </p>
+
+          <div class="ui-box__desc" ng-bind="vm_offers.offer.Description">
+            {{ offer.Description }}
+          </div>
+
+          <ul class="ui-box__features">
+            <li class="icon-briefcase">
+              {{ offer.Company.Name }}
+            </li>
+            <li class="icon-map-pin" ng-if="offer.Company.Location">
+              {{ offer.Company.Location.Name }}
+            </li>
+            <li class="ui-box__features--active icon-tag-double" ng-if="offer.Started && !offer.Expired">
+              Offer Active
+            </li>
+            <li class="ui-box__features__item--disabled icon-star" ng-if="!offer.Started">
+                The offer started on {{ offer.ValidFrom | date : 'dd MMM, yyyy' }}
+            </li>
+            <li class="icon-schedule" ng-if="offer.ValidUntil && !offer.Expired && offer.Started">
+              Valid until {{ offer.ValidUntil | date : 'dd MMM, yyyy' }}
+            </li>
+            <li class="ui-box__features--expired icon-tag-double" ng-if="offer.Expired">
+              Offer expired
+            </li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</div>

@@ -1,0 +1,21 @@
+<div>
+  <header class="ui-header">
+    <h1 class="ui-header__heading">
+      Filter
+    </h1>
+
+    <div class="ui-header__buttonsset">
+      <a href="#" class="ui-popover__close icon-close" ng-click="vm_offers.filter($event)"></a>
+    </div>
+  </header>
+
+  <div class="ui-popover__wrap">
+    <h3>
+      #Quick explanation for user about this feature.#
+    </h3>
+
+    <category-set category-multiple category-ctrl-obj="vm_offers.filter_categories" category-ctrl-callback="vm_offers.filter(event)" class="ui-category_set">
+      <!-- -->
+    </category-set>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="wrap">
+  <!-- <popover popover-name="popover_your_informations" popover-url="views/settings/your_informations.html" popover-top class="ui-popover">
+    
+  </popover> -->
+
+  <popover popover-name="popover_change_password" popover-url="views/settings/change_password.html" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_invite_users" popover-url="views/settings/invite_users.html" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <popover popover-name="popover_invited_users" popover-url="views/settings/invited_users.html" popover-top class="ui-popover">
+    <!-- -->
+  </popover>
+
+  <header class="ui-header">
+    <div class="ui-header__buttonsset">
+      <!-- <a href="#" title="Menu" class="icon-menu" toggle-nav></a> -->
+      <nav-bar></nav-bar>
+    </div>
+
+    <h1 class="ui-header__heading">
+      Setings
+    </h1>
+  </header>
+
+  <section class="content">
+    <div class="content__inner space-both">
+      <h1 class="ui-heading--highlight">
+        Set up the Network<br>as you need
+      </h1>
+
+      <div class="ui-list">
+        <!-- <a href="#" class="ui-list__item" ng-click="popover_your_informations.toggle($event)">
+          <i class="ui-list__icon ui-list__icon--left icon-user"></i>
+
+          Your informations
+
+          <i class="ui-list__icon ui-list__icon--right icon-arrow-circ-right"></i>
+        </a> -->
+
+        <a href="#" class="ui-list__item" ng-click="popover_change_password.toggle($event)">
+          <i class="ui-list__icon ui-list__icon--left icon-lock"></i>
+
+          Change Password
+
+          <i class="ui-list__icon ui-list__icon--right icon-arrow-circ-right"></i>
+        </a>
+
+        <a href="#" class="ui-list__item" ng-click="popover_invite_users.toggle($event)" ng-if="vm_settings.is_owner">
+          <i class="ui-list__icon ui-list__icon--left icon-user-plus"></i>
+
+          Invite Users
+
+          <i class="ui-list__icon ui-list__icon--right icon-arrow-circ-right"></i>
+        </a>
+
+        <a href="#" class="ui-list__item" ng-click="popover_invited_users.toggle($event)" ng-if="vm_settings.is_owner">
+          <i class="ui-list__icon ui-list__icon--left icon-user-list"></i>
+
+          Invited user's list
+
+          <i class="ui-list__icon ui-list__icon--right icon-arrow-circ-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+</div>

@@ -1,0 +1,50 @@
+<header class="ui-header">
+  <h1 class="ui-header__heading">
+    Products
+  </h1>
+
+  <div class="ui-header__buttonsset">
+    <a href="#" class="icon-plus" ng-click="vm_account.product_edit_new($event)"></a>
+    <a href="#" class="ui-popover__close icon-close"></a>
+  </div>
+</header>
+
+<div class="ui-popover__wrap">
+
+  <div class="ui-thumbs" ng-if="!vm_account.product_frm_mode">
+    <div ng-repeat="prod in vm_account.company_infos.ProductPictures" class="ui-thumbs__item">
+      <img ng-src="{{ prod.Path }}" alt="">
+
+      <span class="ui-thumbs__buttons">
+        <a href="#" class="icon-pencil" title="Edit" ng-click="vm_account.product_edit_new($event, prod.Id, $index)"></a>
+
+        <a href="#" title="Delete" class="icon-trash" ng-click="vm_account.product_delete($event, prod.Id, $index)"></a>
+      </span>
+    </div>
+  </div>
+
+  <div ng-if="vm_account.product_frm_mode">
+    <form name="frm_product" novalidate ng-submit="vm_account.product_send($event)">
+      <fieldset>
+
+        <label class="ui-file ui-file--block icon-camera-plus" ng-class="{'ui-file--preview': vm_account.fields_product.Id}">
+          <img ng-src="{{ vm_account.fields_product.Path }}">
+
+          <input type="file" ng-model="vm_account.fields_product.Picture" upload ctrl-field="vm_account.fields_product.Picture">
+        </label>
+
+        <label class="ui-textfield">
+          <input type="text" ng-model="vm_account.fields_product.Caption" name="Caption" placeholder="Caption" autocorrect="off" autocapitalize="off">
+        </label>
+
+        <div class="ui-button-bar ui-button-bar--double" ng-if="!vm_offer.offer.MyPost">
+          <a href="#" title="Cancel" class="ui-button ui-button--outline" ng-click="vm_account.product_reset($event)">Cancel</a>
+
+          <button type="submit" class="ui-button">{{ vm_account.fields_product.Id ? 'Edit' : 'Create' }}</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+</div>
+    

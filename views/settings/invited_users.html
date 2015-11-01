@@ -1,0 +1,41 @@
+<header class="ui-header">
+  <h1 class="ui-header__heading">
+    Invitations
+  </h1>
+
+  <div class="ui-header__buttonsset">
+    <a href="#" class="ui-popover__close icon-close"></a>
+  </div>
+</header>
+
+<div class="ui-popover__wrap">
+
+  <div ng-if="!vm_settings.invitations && !vm_settings.invitations.length">
+    <span class="ui-icon-attention icon-user">
+      <!-- -->
+    </span>
+
+    <h3>
+      You dont have invitations sent
+    <h3>
+
+    <!-- <a href="#/settings/invite-users" title="Invite a user" class="button">Invite a user</a> -->
+  </div>
+
+  <div ng-if="vm_settings.invitations && vm_settings.invitations.length">
+    <h3>
+      List of emails you have<br />sent an invitation
+    </h3>
+
+    <div class="ui-list">
+      <span class="ui-list__item" ng-repeat="invite in vm_settings.invitations">
+        {{ invite.Email }}
+
+        <div class="ui-list__icon_group--right">
+          <a href="#" ng-click="vm_settings.invite_resend($event, invite.Id)" class="ui-list__icon ui-list__icon--right icon-refresh-circ"></a>
+        </div>
+
+        
+      </span>
+    </div>
+  </div>

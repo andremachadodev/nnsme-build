@@ -1,0 +1,24 @@
+<header class="ui-header">
+  <h1 class="ui-header__heading">
+    Profile
+  </h1>
+
+  <div class="ui-header__buttonsset">
+    <a href="#" class="ui-popover__close icon-close"></a>
+  </div>
+</header>
+
+<div class="ui-popover__wrap">
+
+  <form name="frm_profile" novalidate ng-submit="vm_account.update_profile($event)">
+    <label class="ui-textfield">
+      <textarea ng-model="vm_account.fields_profile.Profile" name="Profile" placeholder="Profile" autocorrect="off" autocapitalize="off">
+        {{ vm_account.fields_profile.Profile }}
+      </textarea>
+    </label>
+
+    <button type="submit" type="submit" class="ui-button ui-button--block">Update</button>
+  </form>
+
+</div>
+    

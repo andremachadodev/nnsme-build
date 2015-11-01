@@ -1,0 +1,62 @@
+<header class="ui-header">
+  <h1 class="ui-header__heading">
+    Invite Users
+  </h1>
+
+  <div class="ui-header__buttonsset">
+    <a href="#" class="ui-popover__close icon-close"></a>
+  </div>
+</header>
+
+<div class="ui-popover__wrap">
+
+  <div ng-if="vm_settings.invite_sent && vm_settings.invite_success">
+    <span class="ui-icon-attention icon-check">
+      <!-- -->
+    </span>
+
+    <h3>
+      Your invite has been sent to<br>{{ vm_settings.fields_invite.Email }}
+    </h3>
+
+    <a href="#" title="Back to Home" class="ui-button ui-button--block ui-button--spaced" ng-click="popover_invite_users.close($event)">Back to Home</a>
+  </div>
+
+  <div ng-if="vm_settings.invite_sent && vm_settings.invite_fail">
+    <!-- -->
+  </div>
+
+  <div ng-if="!vm_settings.invite_sent">
+    <form name="frm_invite" novalidate angular-validator angular-validator-submit="vm_settings.send_invite($event)">
+      <h3>
+        Invite users to your profile
+      </h3>
+
+      <span class="ui-icon-attention icon-user-mail">
+        <!-- -->
+      </span>
+
+      <label class="ui-textfield icon-user">
+        <input type="text" name="Name" ng-model="vm_settings.fields_invite.Name" placeholder="Name" />
+      </label>
+
+      <label class="ui-textfield icon-mail">
+        <input type="email" name="Email" placeholder="Email" autocorrect="off" autocapitalize="off"
+
+                ng-pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/"
+
+                ng-model="vm_settings.fields_invite.Email"
+                validate-on="blur"
+                required-message="'Email is required'"
+                invalid-message="'Invalid email'"
+
+                required
+        >
+      </label>
+
+      <button type="submit" type="submit" class="ui-button ui-button--block">Update</button>
+    </form>
+  </div>
+
+</div>
+    

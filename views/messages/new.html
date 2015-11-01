@@ -1,0 +1,60 @@
+<div ng-controller="MessageNew as vm_msg_new">
+  <header class="ui-header">
+    <h1 class="ui-header__heading">
+      Replay
+    </h1>
+
+    <div class="ui-header__buttonsset">
+      <a href="#" class="ui-popover__close icon-close" ng-click="vm_offer_new.reset($event);"></a>
+    </div>
+  </header>
+
+  <div class="ui-popover__wrap">
+    
+    <div class="message__offer_bar">
+      <span class="message__offer_bar__name fl" ng-bind="vm_offer.offer.Title">
+        
+      </span>
+
+      <!-- <span class="message__offer_bar__time fr">
+        {{ new Date() | date : 'mm:ssa' }}
+      </span> -->
+    </div>
+
+    <div class="message__to">
+      To: {{ vm_offer.offer.Company.Name }}
+      <!-- <span class="message__to__company" ng-bind="vm_offer.offer.Company.Name">
+        
+      </span> -->
+    </div>
+
+    <div class="message__content">
+
+      <form name="frm_msg_new" novalidate ng-submit="vm_msg_new.send($event)" ng-if="!vm_msg_new.success && !vm_msg_new.fail" ng-init="vm_msg_new.fields.OfferId = vm_offer.offer.Id">
+        <label class="ui-textfield">
+          <textarea ng-model="vm_msg_new.fields.Message" name="Message" placeholder="Your message..." autocorrect="off" autocapitalize="off">
+            
+          </textarea>
+        </label>
+
+        <button type="submit" class="ui-button ui-button--block">Send</button>
+      </form>
+
+      <div ng-if="vm_msg_new.success">
+        <span class="ui-icon-attention icon-check">
+          <!-- -->
+        </span>
+
+        <h3>
+          Your message has been sent!<br>You will be return to the offer page.
+        </h3>
+      </div>
+
+      <div ng-if="vm_msg_new.fail">
+        
+      </div>
+
+    </div>
+
+  </div>
+</div>

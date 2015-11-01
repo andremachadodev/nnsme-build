@@ -1,0 +1,103 @@
+<div ng-controller="OfferNew as vm_offer_new">
+  <header class="ui-header">
+    <h1 class="ui-header__heading">
+      {{ vm_offer_new.edit_mode ? 'Edit' : 'New' }} offer
+    </h1>
+
+    <div class="ui-header__buttonsset">
+      <a href="#" class="ui-popover__close icon-close" ng-click="vm_offer_new.reset($event);"></a>
+    </div>
+  </header>
+
+  <div class="ui-popover__wrap">
+    <form name="frm_new" novalidate>
+      <fieldset>
+        <div ng-if="vm_offer_new.steps.type">
+          <h3>
+            Set the offer type
+          </h3>
+
+          <div class="ui-type-set">
+            <span class="ui-type-set--grid" ng-repeat="type in vm_offer_new.types">
+              <a href="#" ng-click="vm_offer_new.set_type($event, type.Id, type.Name)" class="ui-type icon-{{ type.Name.replace(' ', '').toLowerCase() }}" ng-bind="type.Name">
+                
+              </a>
+            <span>
+          </div>
+        </div>
+
+        <div ng-if="vm_offer_new.steps.infos">
+          <h3>
+            Enter the informations
+          </h3>
+
+          <label class="ui-textfield">
+            <input type="text" name="Title" ng-model="vm_offer_new.fields.Title" placeholder="Title" autocorrect="off" autocapitalize="off">
+          </label>
+
+          <label class="ui-textfield">
+              <textarea name="Description" ng-model="vm_offer_new.fields.Description" placeholder="Description" autocorrect="off" autocapitalize="off"></textarea>
+          </label>
+
+          <div class="ui-grid__row">
+            <div class="ui-grid__col ui-grid__col--{{ vm_offer_new.fields.Type == 1 ? 'two' : 'one' }}">
+              <label class="ui-textfield symbol-aed">
+                  <input type="tel" name="Amount" ng-model="vm_offer_new.fields.Amount" placeholder="Amount" autocorrect="off" autocapitalize="off">
+              </label>
+            </div>
+
+            <div class="ui-grid__col ui-grid__col--two" ng-if="vm_offer_new.fields.Type == 1">
+              <label class="ui-textfield">
+                <input type="number" name="DiscountRate" ng-model="vm_offer_new.fields.DiscountRate" placeholder="Discount Rate" autocorrect="off" autocapitalize="off">
+              </label>
+            </div>
+          </div>
+
+          <label class="ui-file ui-file--block icon-camera-plus" ng-class="{'ui-file--preview': vm_offer_new.edit_mode}">
+            <img ng-src="{{ vm_offer_new.fields.PicturePath }}" ng-if="vm_offer_new.edit_mode">
+
+            <span ng-if="!vm_offer_new.edit_mode">Add Picture</span>
+            <input type="file" ng-model="vm_offer_new.fields.Pictures" upload ctrl-field="vm_offer_new.fields.Pictures">
+          </label>
+
+          <div class="ui-grid__row">
+            <div class="ui-grid__col ui-grid__col--two" ng-if="vm_offer_new.fields.Type == 6 || vm_offer_new.fields.Type == 1">
+              <label  class="ui-textfield">
+                <input type="date" name="ValidFrom" placeholder="Start Date" autocorrect="off" autocapitalize="off"
+
+                  ng-model="vm_offer_new.fields.ValidFrom"
+
+                  date-normalize date-normalize-min
+                >
+              </label>
+            </div>
+
+            <div class="ui-grid__col ui-grid__col--{{ vm_offer_new.fields.Type == 6 || vm_offer_new.fields.Type == 1 ? 'two' : 'one' }}">
+              <label class="ui-textfield">
+                <input type="date" name="ValidUntil" placeholder="End Date" autocorrect="off" autocapitalize="off"
+
+                  ng-model="vm_offer_new.fields.ValidUntil"
+
+                  date-normalize date-normalize-min
+                >
+              </label>
+            </div>
+          </div>
+
+          <a href="#" ng-click="vm_offer_new.set_infos($event)" title="Next" class="ui-button ui-button--block">Next</a>
+        </div>
+
+        <div ng-if="vm_offer_new.steps.cats">
+          <h3>
+            Set the categories
+          </h3>
+
+          <category-set category-multiple category-ctrl-obj="vm_offer_new.fields.Categories" category-ctrl-callback="vm_offer_new.submit(event)" class="ui-category_set">
+
+          </category-set>
+        </div>
+      </fieldset>
+    </form>
+
+  </div>
+</div>

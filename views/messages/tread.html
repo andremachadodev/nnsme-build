@@ -1,0 +1,44 @@
+<div class="wrap">
+  <header class="ui-header">
+    <div class="ui-header__buttonsset">
+      <!-- <a href="#" title="Menu" class="icon-menu" toggle-nav></a> -->
+      <nav-bar></nav-bar>
+    </div>
+
+    <h1 class="ui-header__heading">
+      Message
+    </h1>
+  </header>
+
+  <section class="content">
+    <div class="content__inner space-outside">
+
+      <div class="message_replies">
+        <div ng-repeat="reply in vm_msg_tread.tread.Replies" class="message_reply {{reply.MyReply ? 'message_reply--me' : ''}}">
+          <img ng-src="{{ reply.Logo }}" class="message_reply__pic">
+
+          <div class="message_reply__desc">
+            {{ reply.Message }}
+
+            <span class="message_reply__time_ago">
+              {{ reply.TimeAgo }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="messages_reply">
+        <form name="frm_msg_reply" novalidate ng-submit="vm_msg_tread.reply($event)">
+          <label class="ui-textfield">
+            <textarea ng-model="vm_msg_tread.fields.Message" name="Message" placeholder="Tap to reply" autocorrect="off" autocapitalize="off">
+              
+            </textarea>
+          </label>
+
+          <button type="submit" class="ui-button icon-arrow-right"></button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+</div>

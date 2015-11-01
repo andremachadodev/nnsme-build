@@ -1,0 +1,34 @@
+<a href="" class="ui-modal__close icon-close"></a>
+
+<div class="ui-modal__centered">
+
+  <div ng-if="report_abuse_sent">
+    <span class="ui-icon-attention icon-warning">
+      <!-- -->
+    </span>
+
+    <h1 class="ui-heading--first">
+      Report Abuse
+    </h1>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultrices elit ut eleifend accumsan.
+        <br>
+        Proin tortor metus, ultricies viverra facilisis at, faucibus quis velit.
+    </p>
+
+    <a href="#" class="ui-button ui-button--block" ng-click="report_abuse($event)">Report</a>
+  </div>
+
+  <div ng-if="report_abuse_sent">
+    <span class="ui-icon-attention icon-check">
+      <!-- -->
+    </span>
+
+    <h1 class="ui-heading--first">
+      Sent!
+    </h1>
+  </div>
+
+  
+</div>
